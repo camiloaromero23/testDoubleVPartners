@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  mysql_db_container:
+    image: mysql:5.7.32
+    command: --default-authentication-plugin=mysql_native_password --init-file /data/application/initDB.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql_db_data_container:/var/lib/mysql
+      - ./initDB.sql:/data/application/initDB.sql
+    restart: always
+  runtime_container:
+    image: camiloaromero23/testdoublevpartners:1.1
+    network_mode: host
+    depends_on:
+      - mysql_db_container
+    restart: always
+
+
+volumes:
+  mysql_db_data_container:
