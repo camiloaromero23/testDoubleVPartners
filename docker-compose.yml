@@ -11,12 +11,6 @@ services:
       - mysql_db_data_container:/var/lib/mysql
       - ./initDB.sql:/data/application/initDB.sql
     restart: always
-  runtime_container:
-    image: camiloaromero23/testdoublevpartners:1.1
-    network_mode: host
-    depends_on:
-      - mysql_db_container
-    restart: always
 
 
 volumes:

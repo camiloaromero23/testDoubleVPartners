@@ -2,12 +2,14 @@
 #### The following is a basic REST API built in Go (Golang) deployed with docker that supports CRUD operations of tickets.
 
 ## Requirements
-This installation requires the previous installation of docker V18.06.0+ and docker-compose 
+This installation requires the previous installation of go (Golang), docker V18.06.0+ and docker-compose 
 
-## API starting command
-In order to start the API, run the following command in the root of this repository:
+## API starting commands
+In order to start the API, run the following commands in the root of this repository:
 ``` console
-docker-compose up
+docker-compose up -d
+go build main.go
+./main
 ```
 ## Endpoints
 

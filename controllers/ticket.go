@@ -13,8 +13,8 @@ type TicketRepo struct {
 	Database *gorm.DB
 }
 
-func New(DB_HOST string, DB_PORT string) *TicketRepo {
-	db := database.InitDatabase(DB_HOST, DB_PORT)
+func New(dbConfig database.DatabaseConfig) *TicketRepo {
+	db := database.InitDatabase(dbConfig)
 	if err := db.AutoMigrate(&models.Ticket{}); err != nil {
 		panic(err.Error())
 	}
@@ -100,7 +100,7 @@ func (repository *TicketRepo) DeleteTicket(context *gin.Context) {
 		return
 	}
 	context.JSON(http.StatusOK, gin.H{
-		"message": "Ticket deleted successfully",
+		"message":        "Ticket deleted successfully",
 		"deleted_ticket": ticket,
 	})
 }
