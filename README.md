@@ -1,5 +1,5 @@
 # Double V Partners Test API
-#### The following is a basic REST API built in Go (Golang) deployed with docker that supports CRUD operations of tickets.
+#### The following is a basic REST API built in Go (Golang) with Gin HTTP web framework deployed with docker that supports CRUD operations of tickets.
 
 ## Requirements
 This installation requires the previous installation of go (Golang), docker V18.06.0+ and docker-compose 
